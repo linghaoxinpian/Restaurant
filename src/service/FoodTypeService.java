@@ -6,13 +6,14 @@ import java.util.List;
 import entity.FoodType;
 import factory.BeanFactory;
 import idao.IFoodTypeDao;
+import iservice.IFoodTypeService;
 
 /**
  * 
  * @author linghaoxinpian
  *
  */
-public class FoodTypeService implements IFoodTypeDao {
+public class FoodTypeService implements IFoodTypeService {
 	
 	private IFoodTypeDao foodTypeDao=BeanFactory.getInstance(IFoodTypeDao.class);
 	@Override

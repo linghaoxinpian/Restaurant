@@ -1,4 +1,4 @@
-﻿<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+﻿<%@ page language="java" import="java.util.*" pageEncoding="UTF-8" isELIgnored="false"%>
 
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -95,7 +95,7 @@ body {
                     <a target="right" href="${pageContext.request.contextPath }/sys/boardList.jsp">餐桌管理</a>
 				</li>
                 <li class="level2 level2Style">
-                	<a target="right" href="${pageContext.request.contextPath }/sys/cuisineList.jsp">菜系管理</a>
+                	<a target="right" href="${pageContext.request.contextPath }/FoodType?method=list">菜系管理</a>
 				</li>
                 <li class="level2 level2Style">
                 	<a target="right" href="${pageContext.request.contextPath }/sys/foodList.jsp">菜品管理</a>
