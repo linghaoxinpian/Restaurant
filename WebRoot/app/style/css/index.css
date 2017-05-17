@@ -71,7 +71,7 @@ li{
 	
 }
 #btn{
-	width:360px;
+	/*width:360px;*/
 	float:left;
 	
 }
@@ -81,8 +81,8 @@ li{
 }
 #btn a{
 	text-decoration:none;
-	display:block;
-	width:39px;
+/*	display:block;*/
+/* 	width:39px; */
 	height:25px;
 	margin-top:8px;
 	text-align:center;

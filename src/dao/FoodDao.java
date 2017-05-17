@@ -51,10 +51,10 @@ public class FoodDao<T> implements IFoodDao {
 			param.add("%"+pb.condition.foodName+"%");	//添加参数
 		}
 		//校验当前页码
-		int total=getTotalCount(pb);
-		if(Math.ceil(total/pb.condition.page_size)<pb.condition.current_page){
+		pb.totalCount=getTotalCount(pb);
+		if(Math.ceil(pb.totalCount/pb.condition.page_size)<pb.condition.current_page){
 			//越界
-			pb.condition.current_page=(int)Math.ceil(total/pb.condition.page_size);	//设置为尾页不动
+			pb.condition.current_page=(int)Math.ceil(pb.totalCount/pb.condition.page_size);	//设置为尾页不动
 		}
 		 if(pb.condition.current_page<1){
 			//越界

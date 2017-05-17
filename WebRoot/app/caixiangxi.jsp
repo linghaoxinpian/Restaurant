@@ -77,7 +77,7 @@
 			<div id="dish_3">
 				<!-- 搜索菜品表单  -->
 				<form action="#" method="post">
-					<table width="166px">
+					<table style="width:166px">
 						<tr>
 							<td>
 								<input type="text" id="dish_name" name="foodName" class="select_value" /> 

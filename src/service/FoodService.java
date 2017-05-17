@@ -10,7 +10,7 @@ public class FoodService implements IFoodService {
 	private IFoodDao ifoodDao=BeanFactory.getInstance(IFoodDao.class);
 	@Override
 	public Food findById(int id) {
-		return ifoodDao.findById(id);		
+		return ifoodDao.findById(id);
 	}
 
 	@Override

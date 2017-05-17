@@ -21,7 +21,7 @@ public class FoodServlet extends BaseServlet {
 		//获取查询参数
 		String food_type=request.getParameter("foodType");	//需要展示的菜系
 		int current_page=request.getParameter("current_page")==null?1:Integer.parseInt(request.getParameter("current_page"));	//当前分页页码
-		int page_size=9;									//每页显示数据量
+		int page_size=4;									//每页显示数据量
 		String foodName=request.getParameter("foodName");	//模糊查询的菜名
 		
 		//注意实例化：泛型类的内部类
@@ -33,6 +33,9 @@ public class FoodServlet extends BaseServlet {
 		ifoodService.getAll(pageBean);
 		request.setAttribute("allFoodType",ifoodTypeService.getAll());
 		request.setAttribute("pageBean", pageBean);
+		request.setAttribute("totalPage", pageBean.getTotalPage());
+		//存取当前已选菜系
+		request.setAttribute("current_foodType", food_type);
 		return request.getRequestDispatcher("/app/caidan.jsp");
 	}
 }

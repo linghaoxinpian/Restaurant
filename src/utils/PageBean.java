@@ -5,24 +5,20 @@ import java.util.List;
 public class PageBean<T> {
 	public Condition condition;
 	public List<T> list;
+	/**
+	 * 总记录数
+	 */
+	public int totalCount;
+	
+	/**
+	 * 总页数
+	 */
+	@SuppressWarnings("unused")
+	private int totalPage;
 	
 	public PageBean(){}
 	public PageBean(Condition condition){
 		this.condition=condition;
-	}
-
-	/**
-	 * @return 总页数
-	 */
-	public int getTotalPage() {
-		return (int) Math.ceil(list.size() / condition.page_size);
-	}
-
-	/**
-	 * @return 总数据条数
-	 */
-	public int getTotalCount(){
-		return list.size();
 	}
 	
 	/**
@@ -54,6 +50,43 @@ public class PageBean<T> {
 			this.page_size = page_size;
 			
 		}
+
+		//封装字段
+		public String getFood_type() {
+			return food_type;
+		}
+
+		public void setFood_type(String food_type) {
+			this.food_type = food_type;
+		}
+
+		public int getCurrent_page() {
+			return current_page;
+		}
+
+		public void setCurrent_page(int current_page) {
+			this.current_page = current_page;
+		}
+
+		public int getPage_size() {
+			return page_size;
+		}
+
+		public void setPage_size(int page_size) {
+			this.page_size = page_size;
+		}
+
+		public String getFoodName() {
+			return foodName;
+		}
+
+		public void setFoodName(String foodName) {
+			this.foodName = foodName;
+		}
+		
+		
+		
+		
 	}
 
 	
@@ -73,8 +106,17 @@ public class PageBean<T> {
 	public void setList(List<T> list) {
 		this.list = list;
 	}
+	public int getTotalPage() {
+		return (int) Math.ceil((float)totalCount / condition.page_size);
+	}
+	public void setTotalPage(int totalPage) {
+		this.totalPage = totalPage;
+	}
 
-	
-
-
+	public int getTotalCount() {
+		return totalCount;
+	}
+	public void setTotalCount(int totalCount) {
+		this.totalCount = totalCount;
+	}
 }

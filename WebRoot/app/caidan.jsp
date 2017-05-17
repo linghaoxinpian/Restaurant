@@ -1,4 +1,6 @@
-﻿<%@ page language="java" import="java.util.*" pageEncoding="UTF-8" isELIgnored="false"%>
+﻿<%@page import="entity.Food"%>
+<%@page import="utils.PageBean"%>
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8" isELIgnored="false"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
@@ -60,11 +62,23 @@
 				</span>			
 				<div id="btn">
 					<ul>
-						<!-- 参看 百度, 谷歌是 左 5 右 4 -->
-						<c:forEach var="i" items="${requestScope.pageBean.getTotalPage }">						
-							<li><a href="#">${i }</a></li>
-						</c:forEach>
+						<li><a href="${pageContext.request.contextPath }/Food?method=foodDetails&current_page=1&foodType=<%=request.getAttribute("current_foodType") %>">首页</a></li>
 						
+<!-- 						循环5页选项								 -->
+						<%
+							int totalPage=((PageBean<Food>)request.getAttribute("pageBean")).getTotalPage();
+							//int totalPage=(int)request.getAttribute("totalPage");
+							for(int i=0;i<(totalPage<3?totalPage:3);i++){
+						%>
+							<li><a href="${pageContext.request.contextPath }/Food?method=foodDetails&current_page=<%=i+"&foodType="+"&foodType="+request.getAttribute("current_foodType") %>"> &nbsp;<%=i+1 %>&nbsp; </a></li>
+						<%} %>
+<!-- 						循环5页选项								 -->
+						<li><a href="${pageContext.request.contextPath }/Food?method=foodDetails&current_page=${requestScope.pageBean.totalPage }&foodType=<%=request.getAttribute("current_foodType") %>">尾页</a></li>
+						<li>
+							<a href="#">
+								第 ${requestScope.pageBean.condition.current_page }/${requestScope.pageBean.totalPage } 页
+							</a>
+						</li>
 					</ul>
 				</div>
 					<span style="float:right; line-height:53px; margin-right:10px;  ">
